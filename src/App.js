@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import TinyUrl from "./components/TinyUrl";
+import UrlForm from "./components/UrlForm";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    longUrl: "www.youtube.com",
+    shortUrl: "youtube",
+  };
+
+  setUrls = (key, value) => {
+    this.setState({
+      [key]: value,
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Welcome to short URL</h1>
+        <UrlForm setUrls={this.setUrls} />
+        <TinyUrl longUrl={this.state.longUrl} shortUrl={this.state.shortUrl} />
+      </div>
+    );
+  }
 }
 
 export default App;
