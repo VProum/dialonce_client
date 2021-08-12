@@ -10,8 +10,8 @@ class UrlForm extends Component {
     event.preventDefault();
 
     try {
-      let data = await apiHandler.sendUrl(this.state.longUrl);
-      this.props.setUrls("shortUrl", data);
+      let data = await apiHandler.sendUrl({ longUrl: this.props.longUrl });
+      this.props.setUrls("shortUrl", data._id);
     } catch (error) {
       console.log(error);
     }
@@ -19,12 +19,13 @@ class UrlForm extends Component {
 
   render() {
     return (
-      <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor="longUrl">Paste your URL here</label>
         <input
           type="text"
           id="longUrl"
           name="longUrl"
+          onChange={this.handleChange}
           value={this.props.longUrl}
         />
         <button>Submit</button>

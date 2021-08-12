@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Welcome to short URL</h1>
-        <UrlForm setUrls={this.setUrls} />
+        <UrlForm setUrls={this.setUrls} longUrl={this.state.longUrl} />
         <TinyUrl longUrl={this.state.longUrl} shortUrl={this.state.shortUrl} />
       </div>
     );

@@ -17,7 +17,7 @@ export default {
 
     sendUrl(url) {
         return service
-            .post("/api/longurl", url)
+            .post("/api/saveurl", url)
             .then((res) => res.data)
             .catch(errorHandler);
     },
