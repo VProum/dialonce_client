@@ -21,11 +21,4 @@ export default {
             .then((res) => res.data)
             .catch(errorHandler);
     },
-
-    getUrl(url) {
-        return service
-            .get("/api/shorturl/" + url)
-            .then((res) => res.data)
-            .catch(errorHandler);
-    },
 };
