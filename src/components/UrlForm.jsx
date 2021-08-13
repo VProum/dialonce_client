@@ -9,8 +9,9 @@ const UrlForm = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      let data = await apiHandler.sendUrl({ longUrl: props.longUrl });
-      props.setUrls("shortUrl", data._id);
+      let dbResult = await apiHandler.sendUrl({ longUrl: props.longUrl });
+      props.setUrls("shortUrl", dbResult._id);
+      props.setUrls("allUrl", [...props.urls, dbResult]);
     } catch (error) {
       console.log(error);
     }

@@ -21,4 +21,18 @@ export default {
             .then((res) => res.data)
             .catch(errorHandler);
     },
+
+    getUrls() {
+        return service
+            .get("/api/url")
+            .then((res) => res.data)
+            .catch(errorHandler);
+    },
+
+    deleteUrl(id) {
+        return service
+            .delete("/api/url/" + id)
+            .then((res) => res.data)
+            .catch(errorHandler);
+    },
 };
